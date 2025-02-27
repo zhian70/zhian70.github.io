@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>十七の生日秘境</title>
+    <style>
+        /* 星空渐变背景 [1,7](@ref) */
+        body {
+            background: linear-gradient(45deg, #1a1a2e 0%, #16213e 100%);
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Microsoft YaHei';
+        }
+        
+        /* 动态粒子效果容器 [9](@ref) */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 主内容区 [3,6](@ref) */
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding-top: 20vh;
+            color: #fff;
+        }
+
+        /* 流光文字特效 [8](@ref) */
+        h1 {
+            font-size: 4em;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: shine 3s infinite;
+        }
+
+        /* 时间胶囊按钮 [7,8](@ref) */
+        .time-capsule {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            padding: 2em;
+            margin: 2em auto;
+            max-width: 600px;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+        }
+        
+        /* 动态交互效果 [2,6](@ref) */
+        button {
+            background: #4ecdc4;
+            border: none;
+            padding: 1em 2em;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        button:hover {
+            transform: scale(1.1);
+            background: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <!-- 粒子动画背景 [9](@ref) -->
+    <div id="particles-js"></div>
+    
+    <div class="container">
+        <h1>🪐 十七的星际生日站 🎂</h1>
+        
+        <div class="time-capsule">
+            <p>来自知安的时空留言：</p >
+            <p>「即使跨越山河，代码也能传递心跳」</p >
+            <button onclick="showSurprise()">开启生日秘境</button>
+        </div>
+    </div>
+
+    <!-- 交互脚本 [2,6](@ref) -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // 粒子系统初始化 [9](@ref)
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80 },
+                color: { value: "#4ecdc4" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out"
+                }
+            }
+        });
+
+        // 惊喜互动功能 [3,7](@ref)
+        function showSurprise() {
+            const messages = [
+                "🎉 解锁成就：遇见最棒的十七！",
+                "📅 第25次地球公转纪念日",
+                "🎁 待领取：来自知安的特别祝福",
+                "🚀 下一站：更精彩的星辰大海"
+            ];
+            alert(messages[Math.floor(Math.random() * messages.length)]);
+        }
+    </script>
+</body>
+</html>
